@@ -302,7 +302,8 @@ class AzurePipelinesMapper:
     MAPPING = {
         "BUILD_SOURCEBRANCHNAME": "GIT_COMMIT_REF_NAME",  # TODO: Do this programmatically instead
         "BUILD_SOURCEVERSION": "GIT_COMMIT_SHA",
-        "SYSTEM_TEAMPROJECT": "PROJECT_NAME"
+        "SYSTEM_TEAMPROJECT": "PROJECT_NAME",
+        "BUILD_REPOSITORY_NAME": "DOCKER_IMAGE_NAME"
     }
 
     def __str__(self) -> str:

@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+import os
 import argparse
 from typing import List
 
@@ -87,7 +88,7 @@ class Devops:
             create_artifact_file_from_dict,
             env_var_safe_key,
         )
-
+        print(f"the variable is '{os.environ['DOCKER_IMAGE_NAME']}'")
         g = Git()
         g.update_submodules(depth=git_submodule_depth, jobs=git_submodule_jobs)
 
