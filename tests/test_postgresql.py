@@ -20,7 +20,9 @@ def test_create_postgresql_database(
 
     track = DEFAULT_TRACK
 
-    postgresql_service = PostgresqlService(track=track, chart="testing/postgresql", chart_version="9.3.3")
+    postgresql_service = PostgresqlService(
+        track=track, chart="testing/postgresql", chart_version="9.3.3"
+    )
 
     kubernetes.deploy_service(
         service=postgresql_service, namespace=test_namespace, track=track
