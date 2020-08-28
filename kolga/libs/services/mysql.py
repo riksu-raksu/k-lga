@@ -17,6 +17,10 @@ from kolga.utils.models import HelmValues
 from kolga.utils.url import URL  # type: ignore
 
 
+class _Persistence(TypedDict):
+    enabled: bool
+
+
 class _TestFramework(TypedDict):
     enabled: bool
 
@@ -28,6 +32,7 @@ class _Values(HelmValues):
     mysqlRootPassword: str
     mysqlDatabase: str
     testFramework: _TestFramework
+    persistence: _Persistence
 
 
 class MysqlService(Service):
@@ -60,6 +65,7 @@ class MysqlService(Service):
             "mysqlRootPassword": self.password,
             "mysqlDatabase": self.database,
             "testFramework": {"enabled": False},
+            "persistence": {"enabled": False},
         }
 
     def setup_prerequisites(self) -> None:
