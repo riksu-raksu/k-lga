@@ -17,14 +17,14 @@ variables:
 - group: kolga-vars
 
 stages:
-- stage: Build
-  displayName: Build image
-  jobs:
-  - job: Build
-    container: Kolga
-    displayName: Build
-    steps:
-      - script: ./devops create_images
+#- stage: Build
+#  displayName: Build image
+#  jobs:
+#  - job: Build
+#    container: Kolga
+#    displayName: Build
+#    steps:
+#      - script: ./devops create_images
 - stage: Test
   displayName: Run tests
   jobs:
@@ -41,7 +41,7 @@ stages:
     variables:
       BUILT_DOCKER_TEST_IMAGE: $[ dependencies.GetTestImageName.outputs['setVariable.BUILT_DOCKER_TEST_IMAGE'] ]
     steps:
-      - script: echo 127.0.0.1 docker-registry >> /etc/hosts
+      - script: sudo chown $(whoami) /etc/hosts && echo 127.0.0.1 docker-registry >> /etc/hosts
       - script: make test
   - job: TestStyle
     container: KolgaDev
