@@ -24,7 +24,7 @@ stages:
     container: Kolga
     displayName: Build
     steps:
-      - script: ./devops create_images
+      - script: export && ./devops create_images
 - stage: Test
   displayName: Run tests
   jobs:
