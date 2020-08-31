@@ -260,6 +260,8 @@ class Settings:
             if not ci_value:
                 continue
             print(f"SETTING {name_to}:{ci_value}")
+            ci_value.decode('utf-8')
+            ci_value.decode('ascii')
             setattr(self, name_to, ci_value)
 
     def setup_kubeconfig(self, track: str) -> Tuple[str, str]:
