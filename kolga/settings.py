@@ -259,6 +259,7 @@ class Settings:
             ci_value = parser(name_from, None)
             if not ci_value:
                 continue
+            print(f"SETTING {name_to}:{ci_value}")
             setattr(self, name_to, ci_value)
 
     def setup_kubeconfig(self, track: str) -> Tuple[str, str]:
