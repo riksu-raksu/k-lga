@@ -88,6 +88,7 @@ class Devops:
             create_artifact_file_from_dict,
             env_var_safe_key,
         )
+        settings.DOCKER_IMAGE_NAME = "helloworld"
         print(f"the variable is '{settings.DOCKER_IMAGE_NAME}'")
         g = Git()
         g.update_submodules(depth=git_submodule_depth, jobs=git_submodule_jobs)
